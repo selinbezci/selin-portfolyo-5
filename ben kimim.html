@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ben kimim</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body{background-color: rgb(247, 215, 225);}
+    </style>
+</head>
+<body>
+   <h1>SELİN BEZCİ KİMDİR? </h1>
+   <ul>Merhaba, ben Selin Bezci. Mimar Sinan Güzel Sanatlar Üniversitesinde mimarlık bölümü öğrencisiyim.</ul>
+   <ul>Aslen Burdurluyum. Şuanda İstanbul Üsküdarda yaşıyorum.</ul>
+   <ul>29 Ocak 2004 doğumluyum.</ul>
+   
+
+
+
+   <h1>HOBİLERİM</h1>
+   <li>Yeni yerler gezip görmek</li>
+   <li>Alışveriş yapmak</li>
+   <li>Film izlemek</li>
+   <li>Müge Anlı izlemek</li>
+   
+   
+   <h1>MİMARLIK 1. SINIFTA YAPTIĞIM ÖDEVLER</h1>
+
+
+
+
+   <div class="slider">
+    <div class="slides">
+        <img class="slide" src="mim1.png" alt="Image #1">
+        <img class="slide" src="mim2.png" alt="Image #2">
+        <img class="slide" src="mim3.png" alt="Image #3">
+        <img class="slide" src="mim4.png" alt="Image #4">
+    </div>
+    <button class="prev" onclick="prevSlide()">&#10552</button>
+    <button class="next" onclick="nextSlide()">&#10553</button>
+  </div>
+  
+   <script>
+
+     const slides = document.querySelectorAll(".slides img");
+let slideIndex = 0;
+let intervalId = null;
+
+document.addEventListener("DOMContentLoaded", initializeSlider);
+
+function initializeSlider(){
+    if(slides.length > 0){
+        slides[slideIndex].classList.add("displaySlide");
+        intervalId = setInterval(nextSlide, 5000);
+    }
+}
+
+function showSlide(index){
+    if(index >= slides.length){
+        slideIndex = 0;
+    }
+    else if(index < 0){
+        slideIndex = slides.length - 1;
+    }
+
+    slides.forEach(slide => {
+        slide.classList.remove("displaySlide");
+    });
+    slides[slideIndex].classList.add("displaySlide");
+}
+
+function prevSlide(){
+    clearInterval(intervalId);
+    slideIndex--;
+    showSlide(slideIndex);
+}
+
+function nextSlide(){
+    slideIndex++;
+    showSlide(slideIndex);
+}
+
+
+
+   </script>
+   
+
+</body>
+</html>
